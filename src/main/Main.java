@@ -35,7 +35,6 @@ public class Main {
             numberSearchers.add(new NumberSearcher(i, array[i], numberToSearch));
         }
 
-
         try {
             ResultWrapper result = fixedThreadPoolExecutor.invokeAny(numberSearchers);
             System.out.printf("El número %d, se encontraba en en la fila %d - columna %d\n",

@@ -1,6 +1,8 @@
 package utils;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 public class NumberSearcher implements Callable<ResultWrapper> {
 
@@ -20,6 +22,7 @@ public class NumberSearcher implements Callable<ResultWrapper> {
             if (numberToFind == arrayToSearch[i]) {
                 return new ResultWrapper(row, i);
             }
+            TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(500) + 500);
         }
         throw new RuntimeException("No se ha encontrado el número en la fila " + row);
     }
